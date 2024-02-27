@@ -1,0 +1,64 @@
+{{define "base"}}
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>{{template "title" .}} - Snippetbox</title>
+<!-- Link to the CSS stylesheet and favicon -->
+<link rel='stylesheet' href='/static/css/main3.css'>
+<link rel='shortcut icon' href='/static/img/aituLogo-removebg-preview.png' type='image/x-icon'>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>NEWS</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+</head>
+<body>
+<section class="navbarHome">
+    <nav class="navbar navbar-expand-lg bg-primary bg-dark border-bottom border-primary" style="border-left: 50px; border-right: 50px; border-top: 50px" data-bs-theme="dark">
+        <div class="container-fluid">
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a aria-current="page" class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/students">For students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/staff">For staff </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/applicants">For applicants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/researches">For researches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/snippet/create">Create New</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<main>
+{{template "main" .}}
+</main>
+{{template "footer" .}}
+<!-- And include the JavaScript file -->
+<script src="/static/js/main.js" type="text/javascript"></script>
+</body>
+</html>
+{{end}}

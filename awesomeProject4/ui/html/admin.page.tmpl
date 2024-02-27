@@ -1,0 +1,41 @@
+{{template "base" .}}
+{{define "title"}}Admin page{{end}}
+{{define "main"}}
+<form action='/admin/change-role' method='POST'>
+<input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+    {{ block "content" . }}
+        <h1>Admin Panel</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Users }}
+                    <tr>
+                        <td>{{ .ID }}</td>
+                        <td>{{ .Name }}</td>
+                        <td>{{ .Email }}</td>
+                        <td>{{ .Role }}</td>
+                        <td>
+                            <form action="/admin/change-role" method="post">
+                                <input type="hidden" name="id" value="{{ .ID}}">
+                                <select name="role">
+                                    <option {{ if eq .Role "admin" }}selected{{ end }}>Admin</option>
+                                    <option value="teacher" {{ if eq .Role "teacher" }}selected{{ end }}>Teacher</option>
+                                    <option value="student" {{ if eq .Role "student" }}selected{{ end }}>Student</option>
+                                </select>
+                                <button type="submit">Update Role</button>
+                            </form>
+                        </td>
+                    </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    {{ end }}
+{{ end }}

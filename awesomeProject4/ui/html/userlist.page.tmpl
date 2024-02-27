@@ -1,0 +1,31 @@
+{{ define "title" }}User List{{ end }}
+
+{{ define "main" }}
+<h1>User List</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    {{ range .Users }}
+    <tr>
+        <td>{{ .Name }}</td>
+        <td>{{ .Email }}</td>
+        <td>{{ .Role }}</td>
+        <td>
+            <form action="/admin/update-role" method="post">
+                <input type="hidden" name="userID" value="{{ .ID }}">
+                <select name="role">
+                    <option value="admin">Admin</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+                <button type="submit">Update Role</button>
+            </form>
+        </td>
+    </tr>
+    {{ end }}
+</table>
+{{ end }}
